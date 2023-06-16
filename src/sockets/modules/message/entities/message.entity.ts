@@ -1,6 +1,7 @@
 import { UserEntity } from '@app/modules/user/entities/user.entity';
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   OneToMany,
@@ -21,6 +22,6 @@ export class MessageEntity {
   @Column({ default: 'main' })
   to: string;
 
-  @Column()
+  @CreateDateColumn()
   createdAt: Date;
 }

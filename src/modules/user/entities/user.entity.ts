@@ -1,4 +1,11 @@
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BeforeInsert,
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { hash } from 'bcrypt';
 
 @Entity({ name: 'users' })
@@ -24,10 +31,10 @@ export class UserEntity {
   @Column({ select: false, default: '' })
   socketId: string;
 
-  @Column({ default: new Date() })
+  @CreateDateColumn()
   createdAt: Date;
 
-  @Column({ default: new Date() })
+  @UpdateDateColumn()
   updatedAt: Date;
 
   @BeforeInsert()

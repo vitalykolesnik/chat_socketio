@@ -20,10 +20,7 @@ export class LoggerMiddleware implements NestMiddleware {
 
       const auth = req.headers?.authorization;
       if (auth) {
-        this.logger.debug(
-          req.headers.authorization,
-          decode(auth.split(' ')[1]),
-        );
+        this.logger.log(req.headers.authorization, decode(auth.split(' ')[1]));
       }
     });
     next();
